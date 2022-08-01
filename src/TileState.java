@@ -1,0 +1,3 @@
+public enum TileState {
+    NONSOLID,SOLID,START,FINISH,SEARCHING
+}
