@@ -3,7 +3,6 @@ import java.awt.event.*;
 import java.util.Random;
 import javax.swing.Timer;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Insets;
 
 import javax.swing.ImageIcon;
@@ -17,8 +16,12 @@ public class Tile extends JButton{
     private TileState state = TileState.NONSOLID;
 
 
-    private Color solid = Color.BLACK, nonsolid = Color.white;
-    private ImageIcon start = new ImageIcon("startIcon.png"), finish = new ImageIcon("finishIcon.png"), searching = new ImageIcon("searchIcon.png");
+    //private Color solid = Color.BLACK, nonsolid = Color.white;
+    private ImageIcon start = new ImageIcon("startIcon.png"),
+     finish = new ImageIcon("finishIcon.png"), 
+     searching = new ImageIcon("searchIcon.png"),
+     solid =  new ImageIcon("solidIcon.png"),
+     nonsolid = new ImageIcon("nonsolidIcon.png");
 
     private int gridx,gridy,tileNumber;
 
@@ -27,14 +30,14 @@ public class Tile extends JButton{
 
     public Tile(Dimension d,boolean random)
     {
-        this.setHorizontalAlignment(SwingConstants.LEFT);
+        this.setHorizontalAlignment(SwingConstants.CENTER);
         gridx = (int)d.getWidth();
         gridy = (int)d.getHeight();
         tileNumber = (gridx*21)+gridy+1;
         //this.setText((tileNumber)+"");
         this.setPreferredSize(new Dimension(App.tileSize,App.tileSize));
         Random r = new Random();
-        this.setBackground(nonsolid);
+        this.setIcon(nonsolid);
 
         if(random)
         {
@@ -42,7 +45,7 @@ public class Tile extends JButton{
             {
                setStart();
             } else if(r.nextInt(3)==0){
-                this.setBackground(solid);
+                this.setIcon(solid);
                 state = TileState.SOLID;
             }
             if(tileNumber == 639)
@@ -76,35 +79,30 @@ public class Tile extends JButton{
         {
             case NONSOLID:
             state = TileState.SOLID;
-            this.setIcon(null);
-            this.setBackground(solid);
+            this.setIcon(solid);
             break;
             case SOLID:
-            this.setIcon(null);
             state = TileState.FINISH;
             this.setIcon(finish);
             break;
             case FINISH:
 
             state = TileState.NONSOLID;
-            this.setIcon(null);
-            this.setBackground(nonsolid);
+            this.setIcon(nonsolid);
             break;
         }
     }
     public void setNonSolid()
     {
         if(state == TileState.SEARCHING){
-        this.setBackground(nonsolid);
-        this.setIcon(null);
+        this.setIcon(nonsolid);
         state = TileState.NONSOLID;
         timer.stop();
         }
     }
     public void setSolid()
     {
-        this.setIcon(null);
-        this.setBackground(solid);
+        this.setIcon(solid);
             state = TileState.SOLID;
     }
     public void setStart()

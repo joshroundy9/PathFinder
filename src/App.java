@@ -1,16 +1,13 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import javax.swing.Timer;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 public class App extends JPanel{
 
@@ -127,6 +124,7 @@ public class App extends JPanel{
         } else if (success == 0) conclusion();
     
         } 
+        
     
 }
     public void clearSearchTiles()
@@ -138,6 +136,7 @@ public class App extends JPanel{
         }
         continueLoop = true;
         controls.updateIndicator(3);
+        this.updateUI();
     }
 
     public Dimension findStartTile()
