@@ -1,10 +1,9 @@
 ## Intro
-This project is essentially a maze builder that if possible finds the solution with the fastest time.
+This project is a maze builder that if finds any possible solution with the fastest time.
 
 ## Instructions 
-To edit a tile simply click it to cycle through nonsolid, solid, and finish flag tiles.
-To start the solving animation press start.
-The rest should be self explanatory.
+To edit a tile simply click it to cycle through nonsolid, solid, and finish tiles.
+To start the solving animation press start and the rest should be self explanatory.
 
 ## Technicalities
 The project is built using Java swing, with the grid system utilizing a hashmap linking a coordinate to a tile object.
