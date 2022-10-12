@@ -1,5 +1,5 @@
 ## Intro
-This project is a maze builder that if finds any possible solution with the fastest time.
+This project is a maze builder that if finds any possible solution with the fastest time using dijkstra's algorithm.
 
 ## Instructions 
 To edit a tile simply click it to cycle through nonsolid, solid, and finish tiles.
